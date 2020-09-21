@@ -55,3 +55,19 @@ nav ul li {
 .active {
     font-weight: bolder;
 }
+
+/* PIe Chart */
+.arc text {
+    font: 18px arial;
+    text-anchor: middle;
+}
+
+.arc path {
+    stroke: #fff;
+}
+
+.title {
+    fill: green;
+    font-size: 24px;
+    font-weight: italic;
+}
