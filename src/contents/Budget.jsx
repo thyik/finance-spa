@@ -9,13 +9,13 @@ class Budget extends Component {
         this.state = {
             data: [12, 5, 6, 6, 9, 10],
             pieData: [
-                { items: "Fun", amt: 480.0 },
+                /* { items: "Fun", amt: 480.0 },
                 { items: "Clothing", amt: 270.0 },
                 { items: "Eating-Out", amt: 300.0 },
                 { items: "Education", amt: 960.0 },
                 { items: "Medical", amt: 500.0 },
                 { items: "Utilities", amt: 300.0 },
-                { items: "Transport", amt: 335.0 },
+                { items: "Transport", amt: 335.0 }, */
             ],
             width: 700,
             height: 500,
@@ -26,8 +26,8 @@ class Budget extends Component {
     componentDidMount() {
         // data MUST be place in the public folder
         // and the path is relative to public folder
-        d3.csv("./dataset/expenses.csv").then((data) => {
-            this.setState({ pieData: data });
+        d3.csv("./dataset/expenses.csv").then((inputData) => {
+            this.setState({ pieData: inputData });
         });
     }
 
