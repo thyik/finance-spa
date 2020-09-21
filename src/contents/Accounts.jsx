@@ -6,7 +6,7 @@ class Accounts extends Component {
         this.state = {};
     }
     render() {
-        return <div>This is Accounts Page</div>;
+        return <div className="condiv">This is Accounts Page</div>;
     }
 }
 

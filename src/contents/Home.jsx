@@ -7,8 +7,8 @@ class Home extends Component {
     }
     render() {
         return (
-            <div>
-                <p> This is a demo for Banking Finance Single Page App</p>
+            <div className="condiv">
+                <h1> This is a demo for Banking Finance Single Page App</h1>
             </div>
         );
     }

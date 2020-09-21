@@ -6,6 +6,7 @@ import Home from "./contents/Home";
 import Budget from "./contents/Budget";
 import Report from "./contents/Report";
 import Accounts from "./contents/Accounts";
+import Error from "./contents/Error";
 
 class App extends Component {
     constructor(props) {
@@ -14,7 +15,7 @@ class App extends Component {
     }
     render() {
         return (
-            <div>
+            <div className="App">
                 <header className="App-header">
                     <p>Finance SPA</p>
                 </header>
@@ -25,6 +26,7 @@ class App extends Component {
                         <Route path="/budget" component={Budget} />
                         <Route path="/report" component={Report} />
                         <Route path="/accounts" component={Accounts} />
+                        <Route component={Error} />
                     </Switch>
                 </Router>
             </div>
