@@ -94,3 +94,14 @@ table {
 .groups button:hover {
     color: red;
 }
+
+.grid-subgroup {
+    display: grid;
+    grid-template-columns: 60% 20% 20%;
+    padding: 10px 10px;
+}
+.grid-table {
+    display: grid;
+    grid-template-columns: 40% 60%;
+    padding: 10px 10px;
+}

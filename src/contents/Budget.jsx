@@ -77,7 +77,7 @@ class Budget extends Component {
         },
     ];
 
-    renderRows = this.dataItems.map((item) => {
+    renderItems = this.dataItems.map((item) => {
         // destruct item
         const { title, option } = item;
         const renderOption = option.map((opt) => {
@@ -87,17 +87,12 @@ class Budget extends Component {
         });
 
         return (
-            <tr key={`group-${Object.keys(title)}`}>
-                <td>{Object.values(title)}</td>
-                <td>
-                    <select
-                        name={Object.values(title)}
-                        id={Object.values(title)}
-                    >
-                        {renderOption}
-                    </select>
-                </td>
-            </tr>
+            <div className="grid-table">
+                <label>{Object.values(title)}</label>
+                <select name={Object.values(title)} id={Object.values(title)}>
+                    {renderOption}
+                </select>
+            </div>
         );
     });
 
@@ -117,13 +112,12 @@ class Budget extends Component {
                     </button>
                     <button>Net Worth</button>
                 </div>
-                <div>
-                    <b>Spending by Category</b>
+                <div className="grid-subgroup">
+                    <label>Spending by Category</label>
                     <button>Export</button>
                     <button>Print</button>
-                    <br />
-                    <table>{this.renderRows}</table>
                 </div>
+                {this.renderItems}
                 {/* <svg width="400" height="450"></svg> */}
                 <PieChart
                     data={this.state.pieData}
