@@ -11,17 +11,27 @@ class PieChart extends Component {
         this.myRef = React.createRef();
     }
 
-    drawChart() {
-        const { data, height, width } = this.props;
+    initChart() {
+        const { height, width } = this.props;
 
         const svg = d3
             .select(this.myRef.current)
             .append("svg")
             .attr("width", width)
             .attr("height", height);
+    }
+
+    drawChart() {
+        const { data, height, width } = this.props;
+
+        /*         const svg = d3
+            .select(this.myRef.current)
+            .append("svg")
+            .attr("width", width)
+            .attr("height", height); */
 
         let radius = Math.min(width, height) / 2 - 20;
-
+        const svg = d3.select("svg");
         var g = svg
             .append("g")
             .attr("transform", `translate(${width / 2}, ${height / 2})`);
@@ -48,7 +58,7 @@ class PieChart extends Component {
         var label = d3
             .arc()
             .outerRadius(radius)
-            .innerRadius(radius - 80);
+            .innerRadius(radius - 120);
 
         //console.log(this.state.data);
         /* d3.csv("./dataset/expenses.csv").then((data) => { */
@@ -84,6 +94,7 @@ class PieChart extends Component {
 
     componentDidMount() {
         //this.drawChart();
+        this.initChart();
     }
 
     componentDidUpdate(prevProps, prevState) {

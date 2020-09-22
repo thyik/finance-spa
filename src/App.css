@@ -76,8 +76,21 @@ table {
     width: 70%;
 }
 
-.groupBtn {
+/* Spending grouping */
+.groups {
+    border: 1px #ccc solid;
+    padding: 10px;
+    border-radius: 15px 15px 0px 0px;
+}
+
+.groups button {
     padding: 5px 10px;
     font-size: 16px;
+    border-radius: 10px;
+
     /* display: inline-block; */
+}
+
+.groups button:hover {
+    color: red;
 }

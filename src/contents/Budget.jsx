@@ -25,23 +25,45 @@ class Budget extends Component {
     }
 
     componentDidMount() {
+        this.loadByExpenses();
+    }
+
+    loadByExpenses = () => {
         // data MUST be place in the public folder
         // and the path is relative to public folder
         d3.csv("./dataset/expenses.csv").then((inputData) => {
             this.setState({ pieData: inputData });
         });
-    }
+    };
+
+    loadByPayee = () => {
+        d3.csv("./dataset/payee.csv").then((inputData) => {
+            this.setState({ pieData: inputData });
+        });
+    };
+
+    loadByCategories = () => {
+        d3.csv("./dataset/categories.csv").then((inputData) => {
+            this.setState({ pieData: inputData });
+        });
+    };
 
     render() {
         return (
             <div id="budget" className="condiv">
                 <h1>This is Budget Page</h1>
-                <section>
-                    <button className="groupBtn">Spending By Category</button>
-                    <button className="groupBtn">Spending By Payee</button>
-                    <button className="groupBtn">Spending By Expense</button>
-                    <button className="groupBtn">Net Worth</button>
-                </section>
+                <div className="groups">
+                    <button onClick={this.loadByCategories}>
+                        Spending By Category
+                    </button>
+                    <button onClick={this.loadByPayee}>
+                        Spending By Payee
+                    </button>
+                    <button onClick={this.loadByExpenses}>
+                        Spending By Expense
+                    </button>
+                    <button>Net Worth</button>
+                </div>
                 <div>
                     <b>Spending by Category</b>
                     <button>Export</button>
