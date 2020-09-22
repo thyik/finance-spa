@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import BarChart from "../charts/BarChart";
 import PieChart from "../charts/PieChart";
 import * as d3 from "d3";
+import Tableitem from "../components/Tableitem";
 
 class Budget extends Component {
     constructor(props) {
@@ -47,6 +48,17 @@ class Budget extends Component {
                     <button>Print</button>
                     <br />
                     <table>
+                        <Tableitem
+                            data={{
+                                title: { timeframe: "Timeframe" },
+                                option: [
+                                    { all: "All Dates" },
+                                    { month: "Monthly" },
+                                    { week: "Weekly" },
+                                    { day: "Daily" },
+                                ],
+                            }}
+                        />
                         <tr>
                             <td>Timeframe:</td>
                             <td>
