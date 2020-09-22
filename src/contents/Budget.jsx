@@ -48,6 +48,59 @@ class Budget extends Component {
         });
     };
 
+    dataItems = [
+        {
+            title: { timeframe: "Timeframe" },
+            option: [
+                { all: "All Dates" },
+                { month: "Monthly" },
+                { week: "Weekly" },
+                { day: "Daily" },
+            ],
+        },
+        {
+            title: { categories: "Categories" },
+            option: [
+                { all: "All Categories" },
+                { edu: "Education" },
+                { cloth: "Clothing" },
+                { eatout: "Eating Out" },
+            ],
+        },
+        {
+            title: { payee: "Payee" },
+            option: [{ all: "All Payee" }],
+        },
+        {
+            title: { accounts: "Accounts" },
+            option: [{ all: "All Accounts" }, { off: "Off Budget Accounts" }],
+        },
+    ];
+
+    renderRows = this.dataItems.map((item) => {
+        // destruct item
+        const { title, option } = item;
+        const renderOption = option.map((opt) => {
+            return (
+                <option value={Object.keys(opt)}>{Object.values(opt)}</option>
+            );
+        });
+
+        return (
+            <tr key={`group-${Object.keys(title)}`}>
+                <td>{Object.values(title)}</td>
+                <td>
+                    <select
+                        name={Object.values(title)}
+                        id={Object.values(title)}
+                    >
+                        {renderOption}
+                    </select>
+                </td>
+            </tr>
+        );
+    });
+
     render() {
         return (
             <div id="budget" className="condiv">
@@ -69,60 +122,7 @@ class Budget extends Component {
                     <button>Export</button>
                     <button>Print</button>
                     <br />
-                    <table>
-                        <Tableitem
-                            data={{
-                                title: { timeframe: "Timeframe" },
-                                option: [
-                                    { all: "All Dates" },
-                                    { month: "Monthly" },
-                                    { week: "Weekly" },
-                                    { day: "Daily" },
-                                ],
-                            }}
-                        />
-                        <tr>
-                            <td>Timeframe:</td>
-                            <td>
-                                <select name="timeframe" id="timeframe">
-                                    <option value="all">All Dates</option>
-                                    <option value="month">Monthly</option>
-                                    <option value="week">Weekly</option>
-                                    <option value="day">Daily</option>
-                                </select>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Categories:</td>
-                            <td>
-                                <select name="categories" id="categories">
-                                    <option value="all">All Categories</option>
-                                    <option value="month">Education</option>
-                                    <option value="week">Clothing</option>
-                                    <option value="day">Eating Out</option>
-                                </select>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Payee:</td>
-                            <td>
-                                <select name="payee" id="payee">
-                                    <option value="all">All Payee</option>
-                                </select>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Accounts:</td>
-                            <td>
-                                <select name="accounts" id="accounts">
-                                    <option value="all">Budget Accounts</option>
-                                    <option value="month">
-                                        Off Budget Accounts
-                                    </option>
-                                </select>
-                            </td>
-                        </tr>
-                    </table>
+                    <table>{this.renderRows}</table>
                 </div>
                 {/* <svg width="400" height="450"></svg> */}
                 <PieChart

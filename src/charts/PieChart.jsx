@@ -53,7 +53,7 @@ class PieChart extends Component {
         var path = d3
             .arc()
             .outerRadius(radius - 10)
-            .innerRadius(0);
+            .innerRadius(50);
 
         var label = d3
             .arc()
@@ -69,12 +69,14 @@ class PieChart extends Component {
             .append("g")
             .attr("class", "arc");
 
+        // draw the pie slice
         arc.append("path")
             .attr("d", path)
             .attr("fill", (d) => {
                 return color(d.data.items);
             });
 
+        // draw the text label
         arc.append("text")
             .attr("transform", (d) => {
                 return `translate(${label.centroid(d)})`;
@@ -85,6 +87,7 @@ class PieChart extends Component {
             });
         //});
 
+        // draw the chart title
         svg.append("g")
             .attr("transform", `translate(${width / 2 - 160}, 20)`)
             .append("text")
