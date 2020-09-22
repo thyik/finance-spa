@@ -71,3 +71,13 @@ nav ul li {
     font-size: 24px;
     font-weight: italic;
 }
+
+table {
+    width: 70%;
+}
+
+.groupBtn {
+    padding: 5px 10px;
+    font-size: 16px;
+    /* display: inline-block; */
+}

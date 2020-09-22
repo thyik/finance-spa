@@ -35,7 +35,61 @@ class Budget extends Component {
         return (
             <div id="budget" className="condiv">
                 <h1>This is Budget Page</h1>
-
+                <section>
+                    <button className="groupBtn">Spending By Category</button>
+                    <button className="groupBtn">Spending By Payee</button>
+                    <button className="groupBtn">Spending By Expense</button>
+                    <button className="groupBtn">Net Worth</button>
+                </section>
+                <div>
+                    <b>Spending by Category</b>
+                    <button>Export</button>
+                    <button>Print</button>
+                    <br />
+                    <table>
+                        <tr>
+                            <td>Timeframe:</td>
+                            <td>
+                                <select name="timeframe" id="timeframe">
+                                    <option value="all">All Dates</option>
+                                    <option value="month">Monthly</option>
+                                    <option value="week">Weekly</option>
+                                    <option value="day">Daily</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Categories:</td>
+                            <td>
+                                <select name="categories" id="categories">
+                                    <option value="all">All Categories</option>
+                                    <option value="month">Education</option>
+                                    <option value="week">Clothing</option>
+                                    <option value="day">Eating Out</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Payee:</td>
+                            <td>
+                                <select name="payee" id="payee">
+                                    <option value="all">All Payee</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Accounts:</td>
+                            <td>
+                                <select name="accounts" id="accounts">
+                                    <option value="all">Budget Accounts</option>
+                                    <option value="month">
+                                        Off Budget Accounts
+                                    </option>
+                                </select>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
                 {/* <svg width="400" height="450"></svg> */}
                 <PieChart
                     data={this.state.pieData}
