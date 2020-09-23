@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import BarChart from "../charts/BarChart";
 import PieChart from "../charts/PieChart";
-import * as d3 from "d3";
+import { csv } from "d3";
 import Tableitem from "../components/Tableitem";
+import { VictoryPie } from "victory";
 
 class Budget extends Component {
     constructor(props) {
@@ -24,6 +25,18 @@ class Budget extends Component {
         };
     }
 
+    reformatStruct = (datas) => {
+        return datas.map(function (item) {
+            // create a new object to store full name.
+            let newObj = {};
+            newObj.x = item.items;
+            newObj.y = item.amt;
+
+            // return our new object.
+            return newObj;
+        });
+    };
+
     componentDidMount() {
         this.loadByExpenses();
     }
@@ -31,19 +44,19 @@ class Budget extends Component {
     loadByExpenses = () => {
         // data MUST be place in the public folder
         // and the path is relative to public folder
-        d3.csv("./dataset/expenses.csv").then((inputData) => {
+        csv("./dataset/expenses.csv").then((inputData) => {
             this.setState({ pieData: inputData });
         });
     };
 
     loadByPayee = () => {
-        d3.csv("./dataset/payee.csv").then((inputData) => {
+        csv("./dataset/payee.csv").then((inputData) => {
             this.setState({ pieData: inputData });
         });
     };
 
     loadByCategories = () => {
-        d3.csv("./dataset/categories.csv").then((inputData) => {
+        csv("./dataset/categories.csv").then((inputData) => {
             this.setState({ pieData: inputData });
         });
     };
@@ -119,12 +132,17 @@ class Budget extends Component {
                 </div>
                 <div className="grid-table">{this.renderItems}</div>
                 {/* <svg width="400" height="450"></svg> */}
-                <PieChart
+                {/* <PieChart
                     data={this.state.pieData}
                     width={this.state.width}
                     height={this.state.height}
+                /> */}
+                <VictoryPie
+                    colorScale={["tomato", "orange", "gold", "cyan", "navy"]}
+                    labelRadius="100"
+                    innerRadius="20"
+                    data={this.reformatStruct(this.state.pieData)}
                 />
-
                 {/* <script src="svgChart3.js"></script> */}
                 {/*                 <svg viewBox="0 0 120 120">
                     <circle cx="60" cy="60" r="50" />
