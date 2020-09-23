@@ -95,13 +95,17 @@ table {
     color: red;
 }
 
+/* grid layout */
 .grid-subgroup {
     display: grid;
     grid-template-columns: 60% 20% 20%;
     padding: 10px 10px;
 }
+
 .grid-table {
     display: grid;
     grid-template-columns: 40% 60%;
-    padding: 10px 10px;
+    padding: 1em 1em;
+    row-gap: 1em;
+    column-gap: 1em;
 }

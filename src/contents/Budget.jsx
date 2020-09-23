@@ -87,12 +87,12 @@ class Budget extends Component {
         });
 
         return (
-            <div className="grid-table">
+            <React.Fragment>
                 <label>{Object.values(title)}</label>
                 <select name={Object.values(title)} id={Object.values(title)}>
                     {renderOption}
                 </select>
-            </div>
+            </React.Fragment>
         );
     });
 
@@ -117,7 +117,7 @@ class Budget extends Component {
                     <button>Export</button>
                     <button>Print</button>
                 </div>
-                {this.renderItems}
+                <div className="grid-table">{this.renderItems}</div>
                 {/* <svg width="400" height="450"></svg> */}
                 <PieChart
                     data={this.state.pieData}
