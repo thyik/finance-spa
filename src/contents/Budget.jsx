@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import BarChart from "../charts/BarChart";
-import PieChart from "../charts/PieChart";
+import PieChart from "../charts/PieChart2";
 import { csv } from "d3";
 import Tableitem from "../components/Tableitem";
 import { VictoryPie } from "victory";
@@ -132,17 +132,17 @@ class Budget extends Component {
                 </div>
                 <div className="grid-table">{this.renderItems}</div>
                 {/* <svg width="400" height="450"></svg> */}
-                {/* <PieChart
+                <PieChart
                     data={this.state.pieData}
                     width={this.state.width}
                     height={this.state.height}
-                /> */}
-                <VictoryPie
+                />
+                {/* <VictoryPie
                     colorScale={["tomato", "orange", "gold", "cyan", "navy"]}
                     labelRadius="100"
                     innerRadius="20"
                     data={this.reformatStruct(this.state.pieData)}
-                />
+                /> */}
                 {/* <script src="svgChart3.js"></script> */}
                 {/*                 <svg viewBox="0 0 120 120">
                     <circle cx="60" cy="60" r="50" />
