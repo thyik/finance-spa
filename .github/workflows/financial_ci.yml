@@ -30,4 +30,4 @@ jobs:
         BOT_URL: "https://api.telegram.org/bot$BOT_SECRET/sendMessage?chat_id=-400535008&text=GitHub+BuildPass"
     - run: npm test
     - run: | 
-        curl --location --request GET $BOT_URL
+        curl --location --request GET "$BOT_URL"
