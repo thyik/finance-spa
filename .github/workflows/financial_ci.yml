@@ -33,5 +33,5 @@ jobs:
         curl --location --request GET "$BOT_URL"
       env:
         BOT_SECRET: ${{ secrets.CIIOTBOT }}
-        BOT_URL: ${{ format('https://api.telegram.org/bot{0}/sendMessage?chat_id=-400535008&text=GitHub+BuildPass', $BOT_SECRET) }}  
+        BOT_URL: ${{ format('https://api.telegram.org/bot{0}/sendMessage?chat_id=-400535008&text=GitHub+BuildPass', ${{ BOT_SECRET }}) }}  
         
